@@ -1,12 +1,15 @@
 <div class="login-page">
 
   <div class="login-header">
+
     <h1>Acesse sua conta</h1>
 
     <p>
       Entre em sua conta para continuar na SportMax.
     </p>
+
   </div>
+
 
   <div class="login-card">
 
@@ -16,7 +19,8 @@
       Bem-vindo de volta!
     </p>
 
-    <form>
+
+    <form (ngSubmit)="entrar()">
 
       <div class="form-group">
 
@@ -29,9 +33,11 @@
           id="email"
           name="email"
           placeholder="Digite seu e-mail ou CPF"
+          [(ngModel)]="emailOuCpf"
         >
 
       </div>
+
 
       <div class="form-group">
 
@@ -44,9 +50,11 @@
           id="senha"
           name="senha"
           placeholder="Digite sua senha"
+          [(ngModel)]="senha"
         >
 
       </div>
+
 
       <div class="login-options">
 
@@ -61,11 +69,22 @@
 
         </label>
 
+
         <a href="#">
           Esqueceu sua senha?
         </a>
 
       </div>
+
+
+      @if (mensagemErro) {
+
+        <p class="login-error">
+          {{ mensagemErro }}
+        </p>
+
+      }
+
 
       <button type="submit">
         ENTRAR

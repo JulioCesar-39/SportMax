@@ -13,6 +13,7 @@
 }
 
 
+
 .login-header {
   text-align: center;
 
@@ -40,6 +41,8 @@
   font-size: 12px;
 }
 
+
+
 .login-card {
   width: 100%;
   max-width: 380px;
@@ -54,6 +57,8 @@
 
   border-radius: 5px;
 }
+
+
 
 .login-card h2 {
   margin: 0 0 8px;
@@ -74,6 +79,7 @@
 
   font-size: 11px;
 }
+
 
 
 .form-group {
@@ -117,6 +123,7 @@
 .form-group input:focus {
   border-color: #22c55e;
 }
+
 
 
 .login-options {
@@ -166,6 +173,19 @@
 }
 
 
+
+.login-error {
+  margin: -5px 0 15px;
+
+  color: #dc2626;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+}
+
+
+
 .login-card button {
   width: 100%;
 
@@ -191,7 +211,6 @@
 .login-card button:hover {
   background-color: #16a34a;
 }
-
 
 
 @media (max-width: 500px) {
