@@ -1,0 +1,207 @@
+
+.login-page {
+  min-height: calc(100vh - 120px);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  padding: 40px 20px;
+
+  box-sizing: border-box;
+}
+
+
+.login-header {
+  text-align: center;
+
+  margin-bottom: 35px;
+}
+
+.login-header h1 {
+  margin: 0 0 8px;
+
+  color: #111827;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.login-header p {
+  margin: 0;
+
+  color: #777;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 12px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+
+  border: 1px solid #999;
+
+  border-radius: 5px;
+}
+
+.login-card h2 {
+  margin: 0 0 8px;
+
+  color: #111827;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 18px;
+}
+
+.login-welcome {
+  margin: 0 0 25px;
+
+  color: #777;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 7px;
+
+  color: #111827;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+
+  height: 40px;
+
+  padding: 0 10px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 3px;
+
+  outline: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+}
+
+.form-group input:focus {
+  border-color: #22c55e;
+}
+
+
+.login-options {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: -5px;
+
+  margin-bottom: 20px;
+}
+
+.remember {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  color: #555;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+}
+
+.remember input {
+  margin: 0;
+}
+
+.login-options a {
+  color: #16a34a;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.login-options a:hover {
+  text-decoration: underline;
+}
+
+
+.login-card button {
+  width: 100%;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 3px;
+
+  background-color: #22c55e;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background-color: #16a34a;
+}
+
+
+
+@media (max-width: 500px) {
+
+  .login-page {
+    padding: 30px 15px;
+  }
+
+  .login-card {
+    max-width: 100%;
+  }
+
+}
