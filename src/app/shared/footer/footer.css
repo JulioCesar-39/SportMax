@@ -1,0 +1,93 @@
+.footer {
+  width: 100%;
+  min-height: 80px;
+
+  background-color: #171c1f;
+  color: white;
+
+  display: flex;
+  align-items: center;
+
+  padding: 12px 36px;
+  box-sizing: border-box;
+
+  gap: 70px;
+}
+
+
+/* LOGO */
+
+.footer-logo {
+  width: 115px;
+}
+
+.footer-logo h2 {
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+
+  line-height: 20px;
+}
+
+.footer-logo h2 span {
+  color: #20c557;
+}
+
+.footer-logo p {
+  margin: 2px 0 0;
+
+  font-family: Arial, sans-serif;
+  font-size: 7px;
+  color: #bdbdbd;
+}
+
+
+/* COLUNAS */
+
+.footer-coluna {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  min-width: 120px;
+}
+
+.footer-coluna h3 {
+  margin: 0 0 3px;
+
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.footer-coluna a {
+  color: #bdbdbd;
+
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+  font-size: 7px;
+  line-height: 9px;
+}
+
+.footer-coluna a:hover {
+  color: #20c557;
+}
+
+
+/* DIREITOS */
+
+.footer-direitos {
+  margin-left: auto;
+}
+
+.footer-direitos p {
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+  font-size: 7px;
+  color: #777;
+}

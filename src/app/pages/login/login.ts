@@ -16,7 +16,7 @@ export class Login {
 
   mensagemErro: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   entrar(): void {
 
@@ -27,6 +27,8 @@ export class Login {
       return;
     }
 
+
+    //Dados para teste temporários 
     const emailCorreto = 'admin@sportmax.com';
     const senhaCorreta = '123456';
 
