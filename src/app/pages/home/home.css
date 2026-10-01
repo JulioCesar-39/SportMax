@@ -1,0 +1,122 @@
+/* 1. BANNER HOME */
+.banner {
+
+}
+
+/* 2. SEÇÃO DE OFERTAS E TÍTULOS */
+.ofertas {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Seletores para as classes do título */
+.ofertas h2.Melhores.ofertas {
+  font-size: 28px;
+  color: #000;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.ofertas h2.Semana.do.Cliente {
+  font-size: 26px;
+  color: #000;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* 3. GRID DE PRODUTOS (5 cartões lado a lado) */
+.grid-produtos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.card-produto {
+  border: 1px solid #e5e7eb;  /* Borda cinza suave em volta do card */
+  border-radius: 12px;         /* Cantos arredondados */
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+.card-produto img {
+  height: 140px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.nome-produto {
+  font-size: 13px;
+  color: #111827;              /* Cor escura e nítida */
+  font-weight: 700;            /* Negrito forte como no Figma */
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.preco-produto {
+  font-size: 18px;
+  font-weight: 800;
+  color: #000000;
+  margin: 0 0 15px 0;
+}
+
+.btn-adicionar {
+  background-color: #22c55e;   /* Verde preenchido no botão */
+  color: #ffffff;              /* Texto em branco */
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;          /* Cantos ligeiramente arredondados */
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.btn-adicionar:hover {
+  background-color: #16a34a;   /* Verde um pouco mais escuro no hover */
+}
+
+/* 4. BARRA DE BENEFÍCIOS (Rodapé escuro) */
+.barra-beneficios {
+  background-color: #181c22;  /* Fundo escuro */
+  border-radius: 10px;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  margin-top: 40px;
+}
+
+.item-beneficio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.carrinho, .escudo, .cartao {
+  font-size: 24px;
+}
+
+.item-beneficio strong {
+  display: block;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.item-beneficio p {
+  font-size: 11px;
+  color: #a0a0a0;
+  margin: 0;
+}
+
+.slogan-beneficio span {
+  color: #20c557;
+  font-weight: bold;
+  font-size: 14px;
+}
