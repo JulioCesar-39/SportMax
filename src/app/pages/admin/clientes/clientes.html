@@ -1,0 +1,58 @@
+<div class="container-admin">
+  <h2>Gerenciamento de Clientes</h2>
+
+  <!-- Área de Inclusão / Alteração -->
+  <section class="card-formulario">
+    <h3>Dados do Cliente</h3>
+    <form class="form-cliente">
+      <div class="grupo-input">
+        <label>Nome Completo:</label>
+        <input type="text" placeholder="Ex: João da Silva">
+      </div>
+      
+      <div class="grupo-input">
+        <label>CPF:</label>
+        <input type="text" placeholder="000.000.000-00">
+      </div>
+
+      <div class="grupo-input">
+        <label>E-mail:</label>
+        <input type="email" placeholder="joao@email.com">
+      </div>
+
+      <div class="grupo-input">
+        <label>Telefone:</label>
+        <input type="text" placeholder="(11) 99999-9999">
+      </div>
+
+      <button type="button" class="btn-salvar">Salvar Cliente</button>
+    </form>
+  </section>
+
+  <!-- Área de Consulta / Exclusão -->
+  <section class="card-listagem">
+    <h3>Clientes Cadastrados</h3>
+    <table class="tabela-clientes">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>E-mail</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Cliente estático para demonstrar o visual -->
+        <tr>
+          <td>Maria Oliveira</td>
+          <td>111.222.333-44</td>
+          <td>maria@email.com</td>
+          <td>
+            <button class="btn-editar">Editar</button>
+            <button class="btn-excluir">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

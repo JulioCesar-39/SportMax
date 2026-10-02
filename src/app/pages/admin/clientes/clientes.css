@@ -1,0 +1,134 @@
+/* 1. Layout Geral da Tela */
+.container-admin {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.container-admin h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* 2. Estilo dos "Cards" (Caixas brancas) */
+.card-formulario, 
+.card-listagem {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-formulario h3, 
+.card-listagem h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+  color: #2980b9;
+}
+
+/* 3. Estrutura do Formulário (CSS Grid) */
+.form-cliente {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide em 2 colunas iguais */
+  gap: 15px; /* Espaço entre os campos */
+}
+
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.grupo-input label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.grupo-input input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.grupo-input input:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* 4. Estilo da Tabela */
+.tabela-clientes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.tabela-clientes th, 
+.tabela-clientes td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.tabela-clientes th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+  color: #333;
+}
+
+.tabela-clientes tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* 5. Botões e Ações */
+.btn-salvar {
+  grid-column: span 2; /* Faz o botão ocupar as duas colunas do grid */
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.btn-salvar:hover {
+  background-color: #219653;
+}
+
+/* Botões menores da tabela */
+.btn-editar, 
+.btn-excluir {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-right: 5px;
+  color: white;
+  transition: opacity 0.3s;
+}
+
+.btn-editar {
+  background-color: #f39c12; /* Amarelo/Laranja */
+}
+
+.btn-excluir {
+  background-color: #e74c3c; /* Vermelho */
+}
+
+.btn-editar:hover, 
+.btn-excluir:hover {
+  opacity: 0.8;
+}
