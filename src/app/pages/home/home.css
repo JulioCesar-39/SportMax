@@ -1,38 +1,82 @@
+/* ESTRUTURA GERAL DA PÁGINA */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #ffffff; /* Garante fundo branco uniforme */
+}
+
+.pagina {
+  width: 100%;
+  overflow-x: hidden; /* Elimina qualquer barra de rolagem horizontal */
+}
+
+.conteudo-principal {
+  width: 100%;
+}
+
+/* Container centralizado para o conteúdo não esticar em telas gigantes */
+.container {
+  width: 100%;
+  max-width: 1300px; /* Largura máxima ideal para preencher bem a tela */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 /* 1. BANNER HOME */
 .banner {
+  width: 100%;
+  margin-bottom: 40px;
+}
 
+.banner-conteudo {
+  width: 100%;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 /* 2. SEÇÃO DE OFERTAS E TÍTULOS */
 .ofertas {
   text-align: center;
   margin-bottom: 40px;
+  width: 100%;
 }
 
-/* Seletores para as classes do título */
-.ofertas h2.Melhores.ofertas {
+
+.ofertas-Melhores.ofertas {
   font-size: 28px;
   color: #000;
   margin-bottom: 4px;
   font-weight: bold;
 }
 
-.ofertas h2.Semana.do.Cliente {
+.ofertas-Semana.do.Cliente {
   font-size: 26px;
   color: #000;
   margin-bottom: 30px;
   font-weight: bold;
 }
 
-/* 3. GRID DE PRODUTOS (5 cartões lado a lado) */
+/* 3. GRID DE PRODUTOS */
 .grid-produtos {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  /* Garante exatamente 5 colunas enquanto houver espaço e se adapta proporcionalmente */
+  grid-template-columns: repeat(5, 1fr); 
   gap: 16px;
+  width: 100%;
 }
 
 .card-produto {
-  border: 1px solid #e5e7eb;  /* Borda cinza suave em volta do card */
+  border: 1px solid #e5e7eb;  /* Borda cinza suave */
   border-radius: 12px;         /* Cantos arredondados */
   padding: 16px;
   display: flex;
@@ -51,8 +95,8 @@
 
 .nome-produto {
   font-size: 13px;
-  color: #111827;              /* Cor escura e nítida */
-  font-weight: 700;            /* Negrito forte como no Figma */
+  color: #111827;              
+  font-weight: 700;            
   margin: 0 0 10px 0;
   line-height: 1.3;
 }
@@ -65,11 +109,11 @@
 }
 
 .btn-adicionar {
-  background-color: #22c55e;   /* Verde preenchido no botão */
-  color: #ffffff;              /* Texto em branco */
+  background-color: #22c55e;   
+  color: #ffffff;              
   border: none;
   padding: 10px 12px;
-  border-radius: 8px;          /* Cantos ligeiramente arredondados */
+  border-radius: 8px;          
   font-weight: 600;
   font-size: 13px;
   cursor: pointer;
@@ -78,19 +122,22 @@
 }
 
 .btn-adicionar:hover {
-  background-color: #16a34a;   /* Verde um pouco mais escuro no hover */
+  background-color: #16a34a;   
 }
 
-/* 4. BARRA DE BENEFÍCIOS (Rodapé escuro) */
+/* 4. BARRA DE BENEFÍCIOS*/
 .barra-beneficios {
-  background-color: #181c22;  /* Fundo escuro */
+  background-color: #181c22;  
   border-radius: 10px;
   padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
   color: #ffffff;
-  margin-top: 40px;
+  margin: 40px 0;
+  width: 100%;
 }
 
 .item-beneficio {
