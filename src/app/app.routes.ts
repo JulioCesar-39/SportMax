@@ -4,6 +4,7 @@ import { Home } from './pages/home/home';
 import { Produtos } from './pages/produtos/produtos';
 import { Carrinho } from './pages/carrinho/carrinho';
 import { Cadastro } from './pages/cadastro/cadastro';
+import { Manutencao } from './pages/admin/produtos/produtos';
 
 export const routes: Routes = [
 
@@ -28,5 +29,9 @@ export const routes: Routes = [
         path: 'cadastro',
         component: Cadastro,
         title: 'Criar Conta'
+    },{
+        path: 'admin/produtos',
+        component: Manutencao,
+        title: 'Manutencao de produtos'
     }
 ];
