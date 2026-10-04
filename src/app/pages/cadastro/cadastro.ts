@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [FormsModule, RouterLink], 
+  imports: [FormsModule, RouterLink],
   templateUrl: './cadastro.html',
   styleUrl: './cadastro.css'
 })
@@ -23,7 +24,10 @@ export class Cadastro {
 
   mensagemErro: string = '';
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router, 
+    private authService: AuthService
+  ) { }
 
   cadastrar(): void {
     this.mensagemErro = '';
@@ -38,7 +42,13 @@ export class Cadastro {
       return;
     }
 
-    alert('Conta criada com sucesso! Redirecionando para o login...');
-    this.router.navigate(['/login']);
+    const sucesso = this.authService.cadastrarCliente(this.cliente);
+
+    if (sucesso) {
+      alert('Conta criada com sucesso! Já pode fazer login.');
+      this.router.navigate(['/login']); 
+    } else {
+      this.mensagemErro = 'Este e-mail ou CPF já se encontra registado no sistema.';
+    }
   }
 }
