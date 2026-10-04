@@ -4,16 +4,11 @@
 
     <div class="logo">
       <span class="logo-sport">Sport</span><span class="logo-max">Max</span>
-
       <small>Mais esporte.</small>
     </div>
 
     <div class="search">
-
-      <input
-        type="text"
-        placeholder="O que você procura?"
-      >
+      <input type="text" placeholder="O que você procura?">
 
       <button type="button" aria-label="Pesquisar">
         <svg viewBox="0 0 24 24">
@@ -21,10 +16,9 @@
           <line x1="16" y1="16" x2="21" y2="21"></line>
         </svg>
       </button>
-
     </div>
 
-    <div class="header-item conta">
+    <a routerLink="/login" class="header-item conta">
 
       <svg viewBox="0 0 24 24">
         <circle cx="12" cy="7" r="4"></circle>
@@ -36,9 +30,9 @@
         <small>Minha conta</small>
       </div>
 
-    </div>
+    </a>
 
-    <div class="header-item carrinho">
+    <a routerLink="/carrinho" class="header-item carrinho">
 
       <svg viewBox="0 0 24 24">
         <path d="M3 4h2l2.5 11h10L21 7H6"></path>
@@ -48,36 +42,19 @@
 
       <span>Carrinho</span>
 
-    </div>
+    </a>
 
   </div>
 
-
   <nav class="menu">
 
-    <a href="#" class="inicio">
+    <a routerLink="/" class="inicio">
       <span class="home-icon">⌂</span>
       Início
     </a>
 
     <a href="#">
       Todas as Categorias
-    </a>
-
-    <a href="#">
-      Roupas
-    </a>
-
-    <a href="#">
-      Calçados
-    </a>
-
-    <a href="#">
-      Acessórios
-    </a>
-
-    <a href="#">
-      Ofertas
     </a>
 
   </nav>
