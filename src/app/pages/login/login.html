@@ -28,13 +28,7 @@
           E-mail ou CPF
         </label>
 
-        <input
-          type="text"
-          id="email"
-          name="email"
-          placeholder="Digite seu e-mail ou CPF"
-          [(ngModel)]="emailOuCpf"
-        >
+        <input type="text" id="email" name="email" placeholder="Digite seu e-mail ou CPF" [(ngModel)]="emailOuCpf">
 
       </div>
 
@@ -45,13 +39,7 @@
           Senha
         </label>
 
-        <input
-          type="password"
-          id="senha"
-          name="senha"
-          placeholder="Digite sua senha"
-          [(ngModel)]="senha"
-        >
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" [(ngModel)]="senha">
 
       </div>
 
@@ -60,10 +48,7 @@
 
         <label class="remember">
 
-          <input
-            type="checkbox"
-            name="lembrar"
-          >
+          <input type="checkbox" name="lembrar">
 
           <span>Lembrar de mim</span>
 
@@ -78,17 +63,18 @@
 
 
       @if (mensagemErro) {
-
-        <p class="login-error">
-          {{ mensagemErro }}
-        </p>
-
+      <p class="login-error">
+        {{ mensagemErro }}
+      </p>
       }
-
 
       <button type="submit">
         ENTRAR
       </button>
+
+      <div class="cadastro-link">
+        <p>Não tem uma conta? <a routerLink="/cadastro">Cadastre-se</a></p>
+      </div>
 
     </form>
 

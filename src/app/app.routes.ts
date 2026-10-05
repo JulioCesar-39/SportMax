@@ -5,6 +5,7 @@ import { Produtos } from './pages/produtos/produtos';
 import { Carrinho } from './pages/carrinho/carrinho';
 import { Cadastro } from './pages/cadastro/cadastro';
 import { Manutencao } from './pages/admin/produtos/produtos';
+import { Conta } from './pages/conta/conta';
 
 export const routes: Routes = [
 
@@ -33,5 +34,9 @@ export const routes: Routes = [
         path: 'admin/produtos',
         component: Manutencao,
         title: 'Manutencao de produtos'
+    },{
+        path: 'conta',
+        component: Conta,
+        title: 'Minha COnta'
     }
 ];

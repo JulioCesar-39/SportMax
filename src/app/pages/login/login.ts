@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -34,16 +34,15 @@ export class Login {
     const senhaAdmin = '123456';
 
     if (this.emailOuCpf === emailAdmin && this.senha === senhaAdmin) {
-      this.router.navigate(['/admin/produtos']); 
-      return; 
+      this.router.navigate(['/admin/produtos']);
+      return;
     }
-    
+
     const clienteLogado = this.authService.fazerLogin(this.emailOuCpf, this.senha);
 
     if (clienteLogado) {
-      this.router.navigate(['/']); 
+      this.router.navigate(['/']);
     } else {
-      // Se não for admin e não for cliente válido, mostramos erro
       this.mensagemErro = 'E-mail/CPF ou senha incorretos.';
     }
   }

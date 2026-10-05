@@ -224,3 +224,26 @@
   }
 
 }
+
+.cadastro-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.cadastro-link p {
+  color: #555;
+  margin: 0;
+}
+
+.cadastro-link a {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.cadastro-link a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
