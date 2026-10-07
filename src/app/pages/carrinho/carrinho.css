@@ -1,0 +1,156 @@
+.cart-page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 30px;
+  font-family: Arial, sans-serif;
+}
+
+.cart-page h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.cart-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 30px;
+  align-items: start;
+}
+
+.cart-items {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-image {
+  width: 130px;
+  height: 130px;
+  background: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #111;
+}
+
+.product-info p {
+  margin: 0 0 20px;
+  color: #777;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.quantity button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.quantity button:hover {
+  background: #f2f2f2;
+}
+
+.quantity span {
+  font-weight: bold;
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
+}
+
+.cart-summary {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 25px;
+  background: #fff;
+}
+
+.cart-summary h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  color: #555;
+}
+
+.cart-summary hr {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 20px 0;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 21px;
+  margin-bottom: 25px;
+}
+
+.summary-total strong {
+  color: #111;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background: #333;
+}
+
+@media (max-width: 768px) {
+  .cart-content {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+  }
+
+  .product-price {
+    width: 100%;
+    text-align: right;
+  }
+}
