@@ -5,36 +5,40 @@
 
     <div class="cart-items">
 
-      <div class="cart-item">
-        <div class="product-image">
-          <span>Produto</span>
-        </div>
+      @for (produto of produtos; track produto.nome) {
+        <div class="cart-item">
 
-        <div class="product-info">
-          <h2>Camisa Esportiva</h2>
-          <p>Camisa SportMax</p>
-
-          <div class="quantity">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
+          <div class="product-image">
+            <img [src]="produto.imagem" [alt]="produto.nome">
           </div>
-        </div>
 
-        <div class="product-price">
-          R$ 99,90
+          <div class="product-info">
+            <h2>{{ produto.nome }}</h2>
+            <p>SportMax</p>
+
+            <div class="quantity">
+             <button (click)="diminuirQuantidade(produto)">-</button>
+<span>{{ produto.quantidade }}</span>
+<button (click)="aumentarQuantidade(produto)">+</button>
+            </div>
+          </div>
+
+          <div class="product-price">
+            R$ {{ produto.preco.toFixed(2).replace('.', ',') }}
+          </div>
+
         </div>
-      </div>
+      }
 
     </div>
 
     <div class="cart-summary">
       <h2>Resumo da compra</h2>
 
-      <div class="summary-line">
-        <span>Subtotal</span>
-        <span>R$ 99,90</span>
-      </div>
+     <div class="summary-line">
+  <span>Subtotal</span>
+  <span>R$ {{ calcularSubtotal().toFixed(2).replace('.', ',') }}</span>
+</div>
 
       <div class="summary-line">
         <span>Frete</span>
@@ -45,10 +49,10 @@
 
       <div class="summary-total">
         <span>Total</span>
-        <strong>R$ 99,90</strong>
+        <strong>R$ {{ calcularSubtotal().toFixed(2).replace('.', ',') }}</strong>
       </div>
 
-      <button class="checkout-button">
+      <button class="checkout-button" (click)="finalizarCompra()">
         Finalizar compra
       </button>
     </div>
