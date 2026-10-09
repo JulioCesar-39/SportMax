@@ -37,6 +37,6 @@ export const routes: Routes = [
     },{
         path: 'conta',
         component: Conta,
-        title: 'Minha COnta'
+        title: 'Minha Conta'
     }
 ];
