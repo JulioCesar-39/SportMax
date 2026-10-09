@@ -2,8 +2,10 @@ import { Routes } from '@angular/router';
 import { Login } from './pages/login/login';
 import { Home } from './pages/home/home';
 import { Produtos } from './pages/produtos/produtos';
-import { Manutencao } from './pages/manutencao/manutencao';
-
+import { Carrinho } from './pages/carrinho/carrinho';
+import { Cadastro } from './pages/cadastro/cadastro';
+import { Manutencao } from './pages/admin/produtos/produtos';
+import { Conta } from './pages/conta/conta';
 
 export const routes: Routes = [
 
@@ -20,10 +22,21 @@ export const routes: Routes = [
         path: 'produtos',
         component: Produtos,
         title: 'Produtos'
-    },
-    {
-        path: 'manutencao',
+    },{
+        path: 'carrinho',
+        component: Carrinho,
+        title: 'carrinho'
+    },{
+        path: 'cadastro',
+        component: Cadastro,
+        title: 'Criar Conta'
+    },{
+        path: 'admin/produtos',
         component: Manutencao,
-        title: 'Manutenção'
+        title: 'Manutencao de produtos'
+    },{
+        path: 'conta',
+        component: Conta,
+        title: 'Minha COnta'
     }
 ];

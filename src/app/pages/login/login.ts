@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -16,10 +17,12 @@ export class Login {
 
   mensagemErro: string = '';
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   entrar(): void {
-
     this.mensagemErro = '';
 
     if (!this.emailOuCpf || !this.senha) {
@@ -27,20 +30,19 @@ export class Login {
       return;
     }
 
+    const emailAdmin = 'admin@sportmax.com';
+    const senhaAdmin = '123456';
 
-    //Dados para teste temporários 
-    const emailCorreto = 'admin@sportmax.com';
-    const senhaCorreta = '123456';
+    if (this.emailOuCpf === emailAdmin && this.senha === senhaAdmin) {
+      this.router.navigate(['/admin/produtos']);
+      return;
+    }
 
-    if (
-      this.emailOuCpf === emailCorreto &&
-      this.senha === senhaCorreta
-    ) {
+    const clienteLogado = this.authService.fazerLogin(this.emailOuCpf, this.senha);
 
+    if (clienteLogado) {
       this.router.navigate(['/']);
-
     } else {
-
       this.mensagemErro = 'E-mail/CPF ou senha incorretos.';
     }
   }

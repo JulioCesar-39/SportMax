@@ -1,0 +1,261 @@
+/* --- VARIÁVEIS DE COR DA SPORTMAX --- */
+:root {
+  --verde-sportmax: #22c55e;
+  --verde-hover: #16a34a;
+  --vermelho-excluir: #ef4444;
+  --vermelho-hover: #dc2626;
+  --fundo-pagina: #f8fafc;
+  --fundo-card: #ffffff;
+  --texto-escuro: #0f172a;
+  --cinza-borda: #cbd5e1;
+  --cinza-cabecalho: #e2e8f0;
+}
+
+body {
+  background-color: var(--fundo-pagina);
+  color: var(--texto-escuro);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- ESTRUTURA E CONTAINER --- */
+.pagina {
+  width: 100%;
+}
+
+.conteudo-principal {
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-manutencao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--cinza-borda);
+  padding-bottom: 15px;
+}
+
+.titulo-pagina {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--texto-escuro);
+  margin: 0;
+}
+
+.badge-perfil {
+  background-color: #dcfce7;
+  color: #15803d;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #bbf7d0;
+}
+
+/* --- CARTÕES (FORMULÁRIO E TABELA) --- */
+.card-manutencao {
+  background-color: var(--fundo-card) !important;
+  border: 1px solid var(--cinza-borda) !important;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.subtitulo-secao {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--texto-escuro);
+}
+
+/* --- FORMULÁRIO --- */
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.campo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-full {
+  grid-column: 1 / -1;
+}
+
+.campo-form label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #334155;
+}
+
+.campo-form input,
+.campo-form select {
+  padding: 10px 12px;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.campo-form input:focus,
+.campo-form select:focus {
+  border-color: var(--verde-sportmax);
+}
+
+.acoes-form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* BOTÃO SALVAR PRODUTO (VERDE COM TEXTO BRANCO) */
+.btn-salvar {
+  background-color: #22c55e !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-salvar:hover {
+  background-color: #16a34a !important;
+}
+
+.btn-secundario {
+  background-color: #e2e8f0 !important;
+  color: #334155 !important;
+  border: none !important;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* --- TABELA ORGANIZADA COM COLUNAS E BORDAS --- */
+.tabela-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--cinza-borda) !important;
+  border-radius: 8px;
+}
+
+.tabela-produtos {
+  width: 100%;
+  border-collapse: collapse !important;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* Cabeçalho da Tabela */
+.tabela-produtos th {
+  background-color: var(--cinza-cabecalho) !important;
+  color: #0f172a !important;
+  padding: 12px 16px !important;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--cinza-borda) !important;
+  border-right: 1px solid var(--cinza-borda) !important;
+}
+
+.tabela-produtos th:last-child {
+  border-right: none !important;
+}
+
+/* Células / Colunas da Tabela */
+.tabela-produtos td {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--cinza-borda) !important;
+  border-right: 1px solid var(--cinza-borda) !important;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.tabela-produtos td:last-child {
+  border-right: none !important;
+}
+
+/* Efeito Zebrado para linhas intercaladas */
+.tabela-produtos tbody tr:nth-child(even) {
+  background-color: #f8fafc !important;
+}
+
+.tabela-produtos tbody tr:nth-child(odd) {
+  background-color: #ffffff !important;
+}
+
+.tabela-produtos tbody tr:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.img-thumb {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.nome-tabela {
+  font-weight: bold;
+}
+
+.preco-tabela {
+  font-weight: bold;
+}
+
+.acoes-tabela {
+  display: flex;
+  gap: 8px;
+}
+
+/* BOTÕES DA TABELA */
+.btn-acao {
+  border: none !important;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* BOTÃO ALTERAR (VERDE COM TEXTO BRANCO) */
+.btn-alterar {
+  background-color: #22c55e !important;
+  color: #ffffff !important;
+}
+
+.btn-alterar:hover {
+  background-color: #16a34a !important;
+}
+
+/* BOTÃO EXCLUIR (VERMELHO COM TEXTO BRANCO) */
+.btn-excluir {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+.btn-excluir:hover {
+  background-color: #dc2626 !important;
+}

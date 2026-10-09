@@ -22,26 +22,40 @@ body, html {
 /* Container centralizado para o conteúdo não esticar em telas gigantes */
 .container {
   width: 100%;
-  max-width: 1300px; /* Largura máxima ideal para preencher bem a tela */
+  max-width: 1900px; /* Largura máxima ideal para preencher bem a tela */
   margin: 0 auto;
   padding: 0 20px;
 }
 
+
 /* 1. BANNER HOME */
 .banner {
   width: 100%;
-  margin-bottom: 40px;
+  margin: 0 0 25px 0;
+  padding: 0;
 }
 
 .banner-conteudo {
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .banner-img {
-  width: 100%;
-  height: auto;
   display: block;
+  width: 100%;
+  height: 400px;
   object-fit: cover;
+  object-position: center;
+  margin: 0;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+  .banner-img {
+    height: 200px;
+  }
+
 }
 
 /* 2. SEÇÃO DE OFERTAS E TÍTULOS */

@@ -1,95 +1,116 @@
 <div class="pagina">
   <main class="conteudo-principal">
 
-    <!-- 1. BANNER (Fora do container para ir de ponta a ponta) -->
-    <section class="banner">
-      <div class="banner-conteudo">
-        <!-- Caminho da imagem ajustado com a barra / para o Angular -->
-        <img src="/imagens/banner.png" alt="Banner promocional" class="banner-img">
-      </div>
-    </section>
+<!-- 1. BANNER (Fora do container para ir de ponta a ponta) -->
+<section class="banner">
+  <div class="banner-conteudo">
+    <!-- Caminho da imagem ajustado com a barra / para o Angular -->
+    <img src="/imagens/banner.png" alt="Banner promocional" class="banner-img">
+  </div>
+</section>
 
-    <!-- CONTAINER para alinhar o restante conteúdo da página -->
-    <div class="container">
+<!-- CONTAINER para alinhar o restante conteúdo da página -->
+<div class="container">
 
-      <!-- 2. TÍTULOS E PRODUTOS -->
-      <section class="ofertas">
-        <h2 class="Melhores ofertas">Melhores ofertas do dia!</h2>
-        <h2 class="Semana do Cliente">Semana do Cliente!</h2>
+  <!-- 2. TÍTULOS E PRODUTOS -->
+  <section class="ofertas">
+    <h2 class="Melhores ofertas">Melhores ofertas do dia!</h2>
+    <h2 class="Semana do Cliente">Semana do Cliente!</h2>
 
-        <!-- Agrupamos os produtos na mesma div com uma classe igual para todos -->
-        <div class="grid-produtos">
+    <!-- Agrupamos os produtos na mesma div com uma classe igual para todos -->
+    <div class="grid-produtos">
 
-          <article class="card-produto">
-            <img src="/imagens/tenis home.png" alt="Tênis Nike Revolution 7">
-            <p class="nome-produto">Tênis Nike Revolution 7</p>
-            <h4 class="preco-produto">R$ 399,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+      <article class="card-produto">
+        <img src="/imagens/tenis home.png" alt="Tênis Nike Revolution 7">
+        <p class="nome-produto">Tênis Nike Revolution 7</p>
+        <h4 class="preco-produto">R$ 399,99</h4>
+        <button class="btn-adicionar" (click)="adicionarAoCarrinho({
+          nome: 'Tênis Nike Revolution 7',
+          preco: 399.99,
+          imagem: '/imagens/tenis nr7.png'
+        })">Adicionar ao carrinho</button>
+      </article>
 
-          <article class="card-produto">
-            <img src="/imagens/camisa home.png" alt="Camiseta Adidas Club 3S">
-            <p class="nome-produto">Camiseta Adidas Club 3S</p>
-            <h4 class="preco-produto">R$ 119,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+      <article class="card-produto">
+        <img src="/imagens/camisa home.png" alt="Camiseta Adidas Club 3S">
+        <p class="nome-produto">Camiseta Adidas Club 3S</p>
+        <h4 class="preco-produto">R$ 119,99</h4>
+        <button class="btn-adicionar" (click)="adicionarAoCarrinho({
+          nome: 'Camiseta Adidas Club 3S',
+          preco: 119.99,
+          imagem: '/imagens/camiseta.png'
+        })">Adicionar ao carrinho</button>
+      </article>
 
-          <article class="card-produto">
-            <img src="/imagens/shorts home.png" alt="Shorts Nike Dri-FIT">
-            <p class="nome-produto">Shorts Nike Dri-FIT</p>
-            <h4 class="preco-produto">R$ 84,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+      <article class="card-produto">
+        <img src="/imagens/shorts home.png" alt="Shorts Nike Dri-FIT">
+        <p class="nome-produto">Shorts Nike Dri-FIT</p>
+        <h4 class="preco-produto">R$ 84,99</h4>
+        <button class="btn-adicionar" (click)="adicionarAoCarrinho({
+          nome: 'Shorts Nike Dri-FIT',
+          preco: 84.99,
+          imagem: '/imagens/shorts home.png'
+        })">Adicionar ao carrinho</button>
+      </article>
 
-          <article class="card-produto">
-            <img src="/imagens/halter home.png" alt="Halter 10kg">
-            <p class="nome-produto">Halter 10kg</p>
-            <h4 class="preco-produto">R$ 269,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+      <article class="card-produto">
+        <img src="/imagens/halter home.png" alt="Halter 10kg">
+        <p class="nome-produto">Halter 10kg</p>
+        <h4 class="preco-produto">R$ 269,99</h4>
+        <button class="btn-adicionar" (click)="adicionarAoCarrinho({
+          nome: 'Halter 10kg',
+          preco: 269.99,
+          imagem: '/imagens/halter home.png'
+        })">Adicionar ao carrinho</button>
+      </article>
 
-          <article class="card-produto">
-            <img src="/imagens/Garrafa home.png" alt="Garrafa Térmica Hydro Flask">
-            <p class="nome-produto">Garrafa Térmica Hydro Flask</p>
-            <h4 class="preco-produto">R$ 179,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- 3. BARRA DE BENEFÍCIOS -->
-      <section class="barra-beneficios">
-        <div class="item-beneficio">
-          <span class="carrinho">🚚</span>
-          <div>
-            <strong>Frete Grátis</strong>
-            <p>para todo o Brasil</p>
-          </div>
-        </div>
-
-        <div class="item-beneficio">
-          <span class="escudo">🛡</span>
-          <div>
-            <strong>Compra Segura</strong>
-            <p>seus dados protegidos</p>
-          </div>
-        </div>
-
-        <div class="item-beneficio">
-          <span class="cartao">💳</span>
-          <div>
-            <strong>Diversas Formas de Pagamento</strong>
-            <p>pix, cartão e boleto</p>
-          </div>
-        </div>
-
-        <div class="slogan-beneficio">
-          <span>🏃 Pratique o que te faz bem!</span>
-        </div>
-      </section>
+      <article class="card-produto">
+        <img src="/imagens/Garrafa home.png" alt="Garrafa Térmica Hydro Flask">
+        <p class="nome-produto">Garrafa Térmica Hydro Flask</p>
+        <h4 class="preco-produto">R$ 179,99</h4>
+        <button class="btn-adicionar" (click)="adicionarAoCarrinho({
+          nome: 'Garrafa Térmica Hydro Flask',
+          preco: 179.99,
+          imagem: '/imagens/garrafap.png'
+        })">Adicionar ao carrinho</button>
+      </article>
 
     </div>
+  </section>
+
+  <!-- 3. BARRA DE BENEFÍCIOS -->
+  <section class="barra-beneficios">
+    <div class="item-beneficio">
+      <span class="carrinho">🚚</span>
+      <div>
+        <strong>Frete Grátis</strong>
+        <p>para todo o Brasil</p>
+      </div>
+    </div>
+
+    <div class="item-beneficio">
+      <span class="escudo">🛡</span>
+      <div>
+        <strong>Compra Segura</strong>
+        <p>seus dados protegidos</p>
+      </div>
+    </div>
+
+    <div class="item-beneficio">
+      <span class="cartao">💳</span>
+      <div>
+        <strong>Diversas Formas de Pagamento</strong>
+        <p>pix, cartão e boleto</p>
+      </div>
+    </div>
+
+    <div class="slogan-beneficio">
+      <span>🏃 Pratique o que te faz bem!</span>
+    </div>
+  </section>
+
+</div>
+```
 
   </main>
 </div>

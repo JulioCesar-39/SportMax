@@ -1,42 +1,38 @@
 .header {
   width: 100%;
-  height: 67px;
-
   background-color: #171c1f;
   color: white;
-
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
 }
+
 
 .header-top {
   position: relative;
-
-  height: 44px;
-
+  height: 58px;
   display: flex;
   align-items: center;
-
   padding: 0 58px;
-
   box-sizing: border-box;
 }
-.logo {
-  width: 150px;
-  flex-shrink: 0;
 
+
+.logo {
+  width: 180px;
+  flex-shrink: 0;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-
   line-height: 1;
+  transform: translateY(5px);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .logo-sport,
 .logo-max {
-  font-size: 20px;
+  font-size: 27px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 27px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .logo-sport {
@@ -49,45 +45,39 @@
 
 .logo small {
   width: 100%;
-
-  margin-top: 2px;
-
+  margin-top: 3px;
   color: #aaaaaa;
-
-  font-size: 7px;
+  font-size: 9px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
 .search {
   position: absolute;
-
   left: 50%;
   transform: translateX(-50%);
 
-  width: 290px;
-  height: 24px;
+  width: 390px;
+  height: 34px;
 
   display: flex;
-  flex-shrink: 0;
 
   background-color: #ffffff;
-
   border-radius: 5px;
-
   overflow: hidden;
 }
 
 .search input {
   flex: 1;
-
   min-width: 0;
 
   border: none;
   outline: none;
 
-  padding: 0 10px;
+  padding: 0 13px;
 
-  font-size: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
 
   color: #333;
 }
@@ -97,11 +87,10 @@
 }
 
 .search button {
-  width: 30px;
+  width: 42px;
   flex-shrink: 0;
 
   border: none;
-
   background: transparent;
 
   display: flex;
@@ -112,8 +101,8 @@
 }
 
 .search svg {
-  width: 13px;
-  height: 13px;
+  width: 17px;
+  height: 17px;
 
   fill: none;
   stroke: #333;
@@ -124,22 +113,23 @@
   display: flex;
   align-items: center;
 
-  color: white;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .header-item svg {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
 
   margin-right: 7px;
 
   fill: none;
-  stroke: white;
+  stroke: #ffffff;
   stroke-width: 1.7;
 }
 
 .header-item span {
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .header-item small {
@@ -147,45 +137,64 @@
 
   color: #bbbbbb;
 
-  font-size: 8px;
+  font-size: 9px;
 }
+
+
 .conta {
   position: absolute;
   right: 135px;
 }
 
+
+
 .carrinho {
   position: absolute;
   right: 58px;
 
-  margin-left: 0;
+  color: #ffffff;
+  text-decoration: none;
 }
 
+.carrinho:visited,
+.carrinho:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+
 .menu {
-  height: 23px;
+  height: 32px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 28px;
+  gap: 45px;
 
   box-sizing: border-box;
 }
+
 .menu a {
   color: #dddddd;
 
   text-decoration: none;
 
-  font-size: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
 }
 
-.menu .inicio {
+.menu a:hover {
+  color: #22c55e;
+}
+
+.menu .ativo {
   color: #22c55e;
   font-weight: 700;
 }
 
 .home-icon {
-  font-size: 10px;
-  margin-right: 3px;
+  font-size: 13px;
+  margin-right: 4px;
 }
