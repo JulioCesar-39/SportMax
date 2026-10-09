@@ -1,27 +1,37 @@
-
+```html
+<!-- Container principal da página do carrinho -->
 <div class="cart-page">
   <h1>Meu carrinho</h1>
 
+  <!-- Organiza os produtos do carrinho e o resumo da compra -->
   <div class="cart-content">
+
+    <!-- Área onde os produtos adicionados serão exibidos -->
     <div class="cart-items">
 
+      <!-- Verifica se o carrinho está vazio -->
       @if (produtos.length === 0) {
         <div class="cart-empty">
           <h2>Seu carrinho está vazio.</h2>
           <p>Adicione produtos na página inicial para vê-los aqui.</p>
         </div>
       } @else {
+
+        <!-- Percorre a lista e exibe cada produto do carrinho -->
         @for (produto of produtos; track produto.nome) {
           <div class="cart-item">
 
+            <!-- Exibe a imagem do produto selecionado -->
             <div class="product-image">
               <img [src]="produto.imagem" [alt]="produto.nome">
             </div>
 
+            <!-- Exibe o nome da loja e as informações do produto -->
             <div class="product-info">
               <h2>{{ produto.nome }}</h2>
               <p>SportMax</p>
 
+              <!-- Permite aumentar ou diminuir a quantidade do produto -->
               <div class="quantity">
                 <button (click)="diminuirQuantidade(produto)">-</button>
                 <span>{{ produto.quantidade }}</span>
@@ -29,6 +39,7 @@
               </div>
             </div>
 
+            <!-- Exibe o preço do produto com vírgula nos centavos -->
             <div class="product-price">
               R$ {{ produto.preco.toFixed(2).replace('.', ',') }}
             </div>
@@ -39,14 +50,17 @@
 
     </div>
 
+    <!-- Área com o resumo dos valores da compra -->
     <div class="cart-summary">
       <h2>Resumo da compra</h2>
 
+      <!-- Mostra a soma dos valores dos produtos -->
       <div class="summary-line">
         <span>Subtotal</span>
         <span>R$ {{ calcularSubtotal().toFixed(2).replace('.', ',') }}</span>
       </div>
 
+      <!-- Informa que o frete é gratuito -->
       <div class="summary-line">
         <span>Frete</span>
         <span>Grátis</span>
@@ -54,11 +68,13 @@
 
       <hr>
 
+      <!-- Mostra o valor total da compra -->
       <div class="summary-total">
         <span>Total</span>
         <strong>R$ {{ calcularSubtotal().toFixed(2).replace('.', ',') }}</strong>
       </div>
 
+      <!-- Chama a função de finalizar compra e desabilita o botão se o carrinho estiver vazio -->
       <button
         class="checkout-button"
         (click)="finalizarCompra()"
@@ -66,5 +82,7 @@
         Finalizar compra
       </button>
     </div>
+
   </div>
 </div>
+```

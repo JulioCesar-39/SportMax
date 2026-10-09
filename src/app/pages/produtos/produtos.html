@@ -11,28 +11,61 @@
             <img src="/imagens/puffer.png" alt="Jaqueta Puffer Bobojaco">
             <p class="nome-produto">Jaqueta Puffer Bobojaco</p>
             <h4 class="preco-produto">R$ 159,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+            <button
+  class="btn-adicionar"
+  (click)="adicionarAoCarrinho({
+    nome: 'Jaqueta Puffer Bobojaco',
+    preco: 159.99,
+    imagem: '/imagens/puffer.png'
+  })">
+  Adicionar ao carrinho
+</button>
           </article>
 
           <article class="card-produto">
             <img src="/imagens/camiseta.png" alt="Camiseta Adidas Club 3S">
             <p class="nome-produto">Camiseta Adidas Club 3S</p>
             <h4 class="preco-produto">R$ 119,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+            
+<button
+  class="btn-adicionar"
+  (click)="adicionarAoCarrinho({
+    nome: 'Camiseta Adidas Club 3S',
+    preco: 119.99,
+    imagem: '/imagens/camiseta.png'
+  })">
+  Adicionar ao carrinho
+</button>
           </article>
 
           <article class="card-produto">
             <img src="/imagens/shorts.png" alt="Shorts Nike Dri-FIT">
             <p class="nome-produto">Shorts Nike Dri-FIT</p>
             <h4 class="preco-produto">R$ 84,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                        <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Shorts Nike Dri-FIT',
+                preco: 84.99,
+                imagem: '/imagens/shorts.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
 
           <article class="card-produto">
             <img src="/imagens/shorts ad.png" alt="Shorts Adidas Train ESS 3 Stripes">
             <p class="nome-produto">Shorts Adidas Train ESS 3 Stripes</p>
             <h4 class="preco-produto">R$ 139,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                        <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Shorts Adidas Train ESS 3 Stripes',
+                preco: 139.99,
+                imagem: '/imagens/shorts ad.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
 
           <article class="card-produto">
@@ -53,21 +86,32 @@
             <img src="/imagens/tenis nr7.png" alt="Tênis Nike Revolution 7">
             <p class="nome-produto">Tênis Nike Revolution 7</p>
             <h4 class="preco-produto">R$ 399,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                     <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Calça Nike Club Knit',
+                preco: 199.99,
+                imagem: '/imagens/calca.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
 
-          <article class="card-produto">
-            <img src="/imagens/tenis nr8.png" alt="Tênis Nike Revolution 8">
-            <p class="nome-produto">Tênis Nike Revolution 8</p>
-            <h4 class="preco-produto">R$ 229,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
-          </article>
+  
 
           <article class="card-produto">
             <img src="/imagens/tenis mizuno.png" alt="Tênis Mizuno Space 6">
             <p class="nome-produto">Tênis Mizuno Space 6</p>
             <h4 class="preco-produto">R$ 265,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                        <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Tênis Mizuno Space 6',
+                preco: 265.99,
+                imagem: '/imagens/tenis mizuno.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
 
           <article class="card-produto">
@@ -81,7 +125,15 @@
             <img src="/imagens/tenis nb.png" alt="Tênis New Balance 530">
             <p class="nome-produto">Tênis New Balance 530</p>
             <h4 class="preco-produto">R$ 679,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                        <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Tênis Adidas Grand Court 2.0',
+                preco: 269.99,
+                imagem: '/imagens/tenis adgc.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
         </div>
       </section>
@@ -95,35 +147,75 @@
             <img src="/imagens/mochila.png" alt="Mochila Nike Classic">
             <p class="nome-produto">Mochila Nike Classic</p>
             <h4 class="preco-produto">R$ 149,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                       <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Mochila Nike Classic',
+                preco: 149.99,
+                imagem: '/imagens/mochila.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
 
           <article class="card-produto">
             <img src="/imagens/bone nk.png" alt="Boné Nike Dri-FIT Swoosh Metal">
             <p class="nome-produto">Boné Nike Dri-FIT Swoosh Metal</p>
             <h4 class="preco-produto">R$ 119,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                      <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Boné Nike Dri-FIT Swoosh Metal',
+                preco: 119.99,
+                imagem: '/imagens/bone nk.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
 
           <article class="card-produto">
             <img src="/imagens/bone.png" alt="Boné Nacional Original Senninha Ayrton Senna">
             <p class="nome-produto">Boné Nacional Original Senninha Ayrton Senna</p>
             <h4 class="preco-produto">R$ 134,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                     <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Boné Nacional Original Senninha Ayrton Senna',
+                preco: 134.99,
+                imagem: '/imagens/bone.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
 
           <article class="card-produto">
             <img src="/imagens/halterp.png" alt="Halter 10kg">
             <p class="nome-produto">Halter 10kg</p>
             <h4 class="preco-produto">R$ 269,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                  <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Halter 10kg',
+                preco: 269.99,
+                imagem: '/imagens/halterp.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
 
           <article class="card-produto">
             <img src="/imagens/garrafap.png" alt="Garrafa Térmica Hydro Flask">
             <p class="nome-produto">Garrafa Térmica Hydro Flask</p>
             <h4 class="preco-produto">R$ 179,99</h4>
-            <button class="btn-adicionar">Adicionar ao carrinho</button>
+                       <button
+              class="btn-adicionar"
+              (click)="adicionarAoCarrinho({
+                nome: 'Garrafa Térmica Hydro Flask',
+                preco: 179.99,
+                imagem: '/imagens/garrafap.png'
+              })">
+              Adicionar ao carrinho
+            </button>
           </article>
         </div>
       </section>
