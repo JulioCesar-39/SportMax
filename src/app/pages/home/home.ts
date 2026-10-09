@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { CarrinhoService } from '../../services/carrinho.service';
-
+import { CarrinhoService } from '../../core/services/carrinho.service';
 @Component({
   selector: 'app-home',
   imports: [],
