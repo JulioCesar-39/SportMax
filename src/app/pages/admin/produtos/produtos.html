@@ -7,20 +7,21 @@
         <span class="badge-perfil">Perfil: Admin</span>
       </div>
 
-      <!-- SEÇÃO 1: FORMULÁRIO (INCLUSÃO / ALTERAÇÃO) -->
+      <!-- FORMULÁRIO (INCLUSÃO / ALTERAÇÃO) -->
       <section class="card-manutencao">
         <h2 class="subtitulo-secao">Cadastrar / Alterar Produto</h2>
-        
+
         <form class="form-produto">
           <div class="grid-form">
             <div class="campo-form">
               <label for="nome">Nome do Produto</label>
-              <input type="text" id="nome" placeholder="Ex: Jaqueta Puffer Bobojaco">
+              <input type="text" id="nome" name="nome" placeholder="Ex: Jaqueta Puffer Bobojaco"
+                [(ngModel)]="produto.nome">
             </div>
 
             <div class="campo-form">
               <label for="categoria">Categoria</label>
-              <select id="categoria">
+              <select id="categoria" name="categoria" [(ngModel)]="produto.categoria">
                 <option value="">Selecione a categoria...</option>
                 <option value="Roupas">Roupas</option>
                 <option value="Tênis">Tênis</option>
@@ -30,28 +31,38 @@
 
             <div class="campo-form">
               <label for="preco">Preço (R$)</label>
-              <input type="text" id="preco" placeholder="159,99">
+              <input type="number" step="0.01" id="preco" name="preco" placeholder="159.99"
+                [(ngModel)]="produto.preco">
             </div>
 
             <div class="campo-form">
               <label for="estoque">Estoque (Qtd)</label>
-              <input type="number" id="estoque" placeholder="10">
+              <input type="number" id="estoque" name="estoque" placeholder="10"
+                [(ngModel)]="produto.estoque">
             </div>
 
             <div class="campo-form campo-full">
               <label for="imagem">Caminho da Imagem</label>
-              <input type="text" id="imagem" placeholder="/imagens/puffer.png">
+              <input type="text" id="imagem" name="imagem" placeholder="/imagens/puffer.png"
+                [(ngModel)]="produto.imagem">
+            </div>
+
+            <div class="campo-form campo-full">
+              <label for="destaque">
+                <input type="checkbox" id="destaque" name="destaque" [(ngModel)]="produto.destaque">
+                Exibir em destaque na página inicial
+              </label>
             </div>
           </div>
 
           <div class="acoes-form">
-            <button type="button" class="btn-secundario">Limpar</button>
-            <button type="button" class="btn-salvar">Salvar Produto</button>
+            <button type="button" class="btn-secundario" (click)="limpar()">Limpar</button>
+            <button type="button" class="btn-salvar" (click)="salvar()">Salvar Produto</button>
           </div>
         </form>
       </section>
 
-      <!-- SEÇÃO 2: TABELA DE MANUTENÇÃO (CONSULTA / EXCLUSÃO) -->
+      <!-- TABELA (CONSULTA / ALTERAÇÃO / EXCLUSÃO) -->
       <section class="card-manutencao">
         <h2 class="subtitulo-secao">Lista de Produtos Cadastrados</h2>
 
@@ -64,93 +75,27 @@
                 <th>Nome</th>
                 <th>Categoria</th>
                 <th>Preço</th>
+                <th>Estoque</th>
                 <th>Ações</th>
               </tr>
             </thead>
             <tbody>
-              <!-- ROUPAS (2 Escolhidos) -->
-              <tr>
-                <td>#1</td>
-                <td><img src="/imagens/puffer.png" alt="Jaqueta Puffer Bobojaco" class="img-thumb"></td>
-                <td class="nome-tabela">Jaqueta Puffer Bobojaco</td>
-                <td>Roupas</td>
-                <td class="preco-tabela">R$ 159,99</td>
-                <td>
-                  <div class="acoes-tabela">
-                    <button type="button" class="btn-acao btn-alterar">Alterar</button>
-                    <button type="button" class="btn-acao btn-excluir">Excluir</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>#2</td>
-                <td><img src="/imagens/camiseta.png" alt="Camiseta Adidas Club 3S" class="img-thumb"></td>
-                <td class="nome-tabela">Camiseta Adidas Club 3S</td>
-                <td>Roupas</td>
-                <td class="preco-tabela">R$ 119,99</td>
-                <td>
-                  <div class="acoes-tabela">
-                    <button type="button" class="btn-acao btn-alterar">Alterar</button>
-                    <button type="button" class="btn-acao btn-excluir">Excluir</button>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- TÊNIS (2 Escolhidos) -->
-              <tr>
-                <td>#3</td>
-                <td><img src="/imagens/tenis nr7.png" alt="Tênis Nike Revolution 7" class="img-thumb"></td>
-                <td class="nome-tabela">Tênis Nike Revolution 7</td>
-                <td>Tênis</td>
-                <td class="preco-tabela">R$ 399,99</td>
-                <td>
-                  <div class="acoes-tabela">
-                    <button type="button" class="btn-acao btn-alterar">Alterar</button>
-                    <button type="button" class="btn-acao btn-excluir">Excluir</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>#4</td>
-                <td><img src="/imagens/tenis nb.png" alt="Tênis New Balance 530" class="img-thumb"></td>
-                <td class="nome-tabela">Tênis New Balance 530</td>
-                <td>Tênis</td>
-                <td class="preco-tabela">R$ 679,99</td>
-                <td>
-                  <div class="acoes-tabela">
-                    <button type="button" class="btn-acao btn-alterar">Alterar</button>
-                    <button type="button" class="btn-acao btn-excluir">Excluir</button>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- ACESSÓRIOS (2 Escolhidos) -->
-              <tr>
-                <td>#5</td>
-                <td><img src="/imagens/mochila.png" alt="Mochila Nike Classic" class="img-thumb"></td>
-                <td class="nome-tabela">Mochila Nike Classic</td>
-                <td>Acessórios</td>
-                <td class="preco-tabela">R$ 149,99</td>
-                <td>
-                  <div class="acoes-tabela">
-                    <button type="button" class="btn-acao btn-alterar">Alterar</button>
-                    <button type="button" class="btn-acao btn-excluir">Excluir</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>#6</td>
-                <td><img src="/imagens/garrafap.png" alt="Garrafa Térmica Hydro Flask" class="img-thumb"></td>
-                <td class="nome-tabela">Garrafa Térmica Hydro Flask</td>
-                <td>Acessórios</td>
-                <td class="preco-tabela">R$ 179,99</td>
-                <td>
-                  <div class="acoes-tabela">
-                    <button type="button" class="btn-acao btn-alterar">Alterar</button>
-                    <button type="button" class="btn-acao btn-excluir">Excluir</button>
-                  </div>
-                </td>
-              </tr>
+              @for (item of listaProdutos; track item.id) {
+                <tr>
+                  <td>#{{ item.id }}</td>
+                  <td><img [src]="item.imagem" [alt]="item.nome" class="img-thumb"></td>
+                  <td class="nome-tabela">{{ item.nome }}</td>
+                  <td>{{ item.categoria }}</td>
+                  <td class="preco-tabela">R$ {{ item.preco.toFixed(2) }}</td>
+                  <td>{{ item.estoque }}</td>
+                  <td>
+                    <div class="acoes-tabela">
+                      <button type="button" class="btn-acao btn-alterar" (click)="editar(item.id)">Alterar</button>
+                      <button type="button" class="btn-acao btn-excluir" (click)="excluir(item.id)">Excluir</button>
+                    </div>
+                  </td>
+                </tr>
+              }
             </tbody>
           </table>
         </div>

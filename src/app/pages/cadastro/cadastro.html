@@ -8,8 +8,8 @@
   <div class="cadastro-card">
     <h2>Dados Pessoais</h2>
 
-    <form (ngSubmit)="cadastrar()">
-      
+    <form>
+
       <div class="form-group">
         <label for="nome">Nome Completo *</label>
         <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" [(ngModel)]="cliente.nome">
@@ -17,7 +17,7 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="cpf">CPF</label>
+          <label for="cpf">CPF *</label>
           <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" [(ngModel)]="cliente.cpf">
         </div>
 
@@ -45,19 +45,15 @@
 
         <div class="form-group">
           <label for="confirmarSenha">Confirmar Senha *</label>
-          <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Repita a senha" [(ngModel)]="cliente.confirmarSenha">
+          <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Repita a senha" [(ngModel)]="confirmarSenha">
         </div>
       </div>
 
       @if (mensagemErro) {
-        <p class="cadastro-error">
-          {{ mensagemErro }}
-        </p>
+        <p class="cadastro-error">{{ mensagemErro }}</p>
       }
 
-      <button type="submit" class="btn-cadastrar">
-        CRIAR CONTA
-      </button>
+      <button type="button" class="btn-cadastrar" (click)="salvar()">CRIAR CONTA</button>
 
       <div class="cadastro-options">
         <p>Já possui uma conta? <a routerLink="/login">Entrar</a></p>

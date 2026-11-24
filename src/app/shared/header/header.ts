@@ -1,21 +1,19 @@
-import { Component, DoCheck } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router'; 
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive], 
+  imports: [RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class Header implements DoCheck {
-  
-  usuarioLogado: any = null;
+export class Header {
+  authService = inject(AuthService);
 
-  constructor(private authService: AuthService) {}
-
-  ngDoCheck(): void {
-    this.usuarioLogado = this.authService.obterClienteLogado();
-  }
+  itensMenu = [
+    { label: '⌂ Início', link: '/' },
+    { label: 'Todas as Categorias', link: '/produtos' }
+  ];
 }

@@ -1,46 +1,37 @@
-<!-- Container principal da página do carrinho -->
 <div class="cart-page">
   <h1>Meu carrinho</h1>
 
-  <!-- Organiza os produtos do carrinho e o resumo da compra -->
   <div class="cart-content">
 
-    <!-- Área onde os produtos adicionados serão exibidos -->
     <div class="cart-items">
 
-      <!-- Verifica se o carrinho está vazio -->
-      @if (produtos.length === 0) {
+      @if (itens.length === 0) {
         <div class="cart-empty">
           <h2>Seu carrinho está vazio.</h2>
-          <p>Adicione produtos na página inicial para vê-los aqui.</p>
+          <p>Adicione produtos para vê-los aqui.</p>
         </div>
       } @else {
-
-        <!-- Percorre a lista e exibe cada produto do carrinho -->
-        @for (produto of produtos; track produto.nome) {
+        @for (item of itens; track item.produto.id) {
           <div class="cart-item">
 
-            <!-- Exibe a imagem do produto selecionado -->
             <div class="product-image">
-              <img [src]="produto.imagem" [alt]="produto.nome">
+              <img [src]="item.produto.imagem" [alt]="item.produto.nome">
             </div>
 
-            <!-- Exibe o nome da loja e as informações do produto -->
             <div class="product-info">
-              <h2>{{ produto.nome }}</h2>
+              <h2>{{ item.produto.nome }}</h2>
               <p>SportMax</p>
 
-              <!-- Permite aumentar ou diminuir a quantidade do produto -->
               <div class="quantity">
-                <button (click)="diminuirQuantidade(produto)">-</button>
-                <span>{{ produto.quantidade }}</span>
-                <button (click)="aumentarQuantidade(produto)">+</button>
+                <button type="button" (click)="diminuir(item)">-</button>
+                <span>{{ item.quantidade }}</span>
+                <button type="button" (click)="aumentar(item)">+</button>
+                <button type="button" class="remove-button" (click)="remover(item)">Remover</button>
               </div>
             </div>
 
-            <!-- Exibe o preço do produto com vírgula nos centavos -->
             <div class="product-price">
-              R$ {{ produto.preco.toFixed(2).replace('.', ',') }}
+              R$ {{ item.produto.preco.toFixed(2) }}
             </div>
 
           </div>
@@ -49,17 +40,14 @@
 
     </div>
 
-    <!-- Área com o resumo dos valores da compra -->
     <div class="cart-summary">
       <h2>Resumo da compra</h2>
 
-      <!-- Mostra a soma dos valores dos produtos -->
       <div class="summary-line">
         <span>Subtotal</span>
-        <span>R$ {{ calcularSubtotal().toFixed(2).replace('.', ',') }}</span>
+        <span>R$ {{ total.toFixed(2) }}</span>
       </div>
 
-      <!-- Informa que o frete é gratuito -->
       <div class="summary-line">
         <span>Frete</span>
         <span>Grátis</span>
@@ -67,21 +55,18 @@
 
       <hr>
 
-      <!-- Mostra o valor total da compra -->
       <div class="summary-total">
         <span>Total</span>
-        <strong>R$ {{ calcularSubtotal().toFixed(2).replace('.', ',') }}</strong>
+        <strong>R$ {{ total.toFixed(2) }}</strong>
       </div>
 
-      <!-- Chama a função de finalizar compra e desabilita o botão se o carrinho estiver vazio -->
       <button
         class="checkout-button"
         (click)="finalizarCompra()"
-        [disabled]="produtos.length === 0">
+        [disabled]="itens.length === 0">
         Finalizar compra
       </button>
     </div>
 
   </div>
 </div>
-```
