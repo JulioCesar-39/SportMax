@@ -1,50 +1,40 @@
 import { Injectable } from '@angular/core';
+import { Produto } from '../models/produto.model';
+import { ItemCarrinho } from '../models/item-carrinho.model';
 
-// Serviço responsável por gerenciar os produtos do carrinho
 @Injectable({
   providedIn: 'root'
 })
 export class CarrinhoService {
+  private itens: ItemCarrinho[] = [];
 
-  // Lista de produtos armazenados no carrinho
-  private produtos: any[] = [];
-
-  // Adiciona um produto ou aumenta sua quantidade se já existir
-  adicionarProduto(produto: any): void {
-    const produtoExistente = this.produtos.find(
-      p => p.nome === produto.nome
-    );
-
-    if (produtoExistente) {
-      produtoExistente.quantidade++;
-    } else {
-      this.produtos.push({
-        ...produto,
-        quantidade: 1
-      });
-    }
+  getItens(): ItemCarrinho[] {
+    return this.itens;
   }
 
-  // Retorna os produtos do carrinho
-  getProdutos(): any[] {
-    return this.produtos;
-  }
-
-  // Aumenta a quantidade de um produto
-  aumentarQuantidade(produto: any): void {
-    produto.quantidade++;
-  }
-
-  // Diminui a quantidade ou remove o produto se chegar a 1
-  diminuirQuantidade(produto: any): void {
-    if (produto.quantidade > 1) {
-      produto.quantidade--;
-    } else {
-      const indice = this.produtos.indexOf(produto);
-
-      if (indice !== -1) {
-        this.produtos.splice(indice, 1);
+  adicionar(produto: Produto): void {
+    for (const item of this.itens) {
+      if (item.produto.id === produto.id) {
+        item.quantidade++;
+        return;
       }
     }
+    this.itens.push({ produto: produto, quantidade: 1 });
+  }
+
+  aumentar(item: ItemCarrinho): void {
+    item.quantidade++;
+  }
+
+  diminuir(item: ItemCarrinho): void {
+    if (item.quantidade > 1) {
+      item.quantidade--;
+    } else {
+      this.remover(item);
+    }
+  }
+
+  remover(item: ItemCarrinho): void {
+    this.itens = this.itens.filter(i => i !== item);
   }
 }

@@ -1,27 +1,33 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Cliente } from '../models/cliente.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-  // "Banco de dados" falso
-  private clientes: Cliente[] = [
-    
-  ];
+  private readonly API = 'http://localhost:3000/clientes';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  // ler qual o cliente
-  getClientes(): Cliente[] {
-    return this.clientes;
+  listar(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.API);
   }
 
-  // excluir um cliente
-  excluirCliente(id: number) {
-    
-    // filtra a lista mantendo apenas os clientes com ID diferente do que queremos excluir
+  buscarPorId(id: string): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.API}/${id}`);
+  }
 
-    this.clientes = this.clientes.filter(c => c.id !== id);
+  incluir(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.API, cliente);
+  }
+
+  editar(cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(`${this.API}/${cliente.id}`, cliente);
+  }
+
+  excluir(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.API}/${id}`);
   }
 }

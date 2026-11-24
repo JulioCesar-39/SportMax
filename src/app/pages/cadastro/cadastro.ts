@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../core/services/auth.service';
+import { ClienteService } from '../../core/services/cliente.service';
+import { Cliente } from '../../core/models/cliente.model';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,44 +12,45 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './cadastro.css'
 })
 export class Cadastro {
-  
-  cliente = {
-    nome: '',
-    cpf: '',
-    email: '',
-    telefone: '',
-    endereco: '',
-    senha: '',
-    confirmarSenha: ''
-  };
+  private router = inject(Router);
+  private clienteService = inject(ClienteService);
 
+  cliente: Cliente = {} as Cliente;
+  confirmarSenha: string = '';
   mensagemErro: string = '';
 
-  constructor(
-    private router: Router, 
-    private authService: AuthService
-  ) { }
-
-  cadastrar(): void {
+  salvar(): void {
     this.mensagemErro = '';
 
-    if (!this.cliente.nome || !this.cliente.email || !this.cliente.senha) {
+    if (!this.cliente.nome || !this.cliente.cpf || !this.cliente.email || !this.cliente.senha) {
       this.mensagemErro = 'Por favor, preencha todos os campos obrigatórios.';
       return;
     }
 
-    if (this.cliente.senha !== this.cliente.confirmarSenha) {
+    if (this.cliente.senha !== this.confirmarSenha) {
       this.mensagemErro = 'As senhas não conferem.';
       return;
     }
 
-    const sucesso = this.authService.cadastrarCliente(this.cliente);
+    this.clienteService.listar().subscribe({
+      next: (clientes) => {
+        for (const c of clientes) {
+          if (c.email === this.cliente.email || c.cpf === this.cliente.cpf) {
+            this.mensagemErro = 'Este e-mail ou CPF já se encontra registado no sistema.';
+            return;
+          }
+        }
 
-    if (sucesso) {
-      alert('Conta criada com sucesso! Já pode fazer login.');
-      this.router.navigate(['/login']); 
-    } else {
-      this.mensagemErro = 'Este e-mail ou CPF já se encontra registado no sistema.';
-    }
+        this.clienteService.incluir(this.cliente).subscribe({
+          next: (cliente) => {
+            this.cliente = cliente;
+            alert(`Cliente ${this.cliente.nome} cadastrado com sucesso!`);
+            this.router.navigate(['/login']);
+          },
+          error: () => alert('Erro ao cadastrar o cliente.')
+        });
+      },
+      error: () => alert('Erro ao consultar a API.')
+    });
   }
 }

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
+import { ClienteService } from '../../core/services/cliente.service';
 
 @Component({
   selector: 'app-login',
@@ -11,39 +12,41 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './login.css'
 })
 export class Login {
+  private router = inject(Router);
+  private authService = inject(AuthService);
+  private clienteService = inject(ClienteService);
 
   emailOuCpf: string = '';
   senha: string = '';
-
   mensagemErro: string = '';
-
-  constructor(
-    private router: Router,
-    private authService: AuthService
-  ) { }
 
   entrar(): void {
     this.mensagemErro = '';
 
-    if (!this.emailOuCpf || !this.senha) {
+    if (this.emailOuCpf.trim() === '' || this.senha.trim() === '') {
       this.mensagemErro = 'Preencha o e-mail ou CPF e a senha.';
       return;
     }
 
-    const emailAdmin = 'admin@sportmax.com';
-    const senhaAdmin = '123456';
-
-    if (this.emailOuCpf === emailAdmin && this.senha === senhaAdmin) {
+    if (this.emailOuCpf === 'admin@sportmax.com' && this.senha === '123456') {
+      this.authService.admin = true;
       this.router.navigate(['/admin/produtos']);
       return;
     }
 
-    const clienteLogado = this.authService.fazerLogin(this.emailOuCpf, this.senha);
-
-    if (clienteLogado) {
-      this.router.navigate(['/']);
-    } else {
-      this.mensagemErro = 'E-mail/CPF ou senha incorretos.';
-    }
+    this.clienteService.listar().subscribe({
+      next: (clientes) => {
+        for (const cliente of clientes) {
+          if ((cliente.email === this.emailOuCpf || cliente.cpf === this.emailOuCpf)
+              && cliente.senha === this.senha) {
+            this.authService.clienteLogado = cliente;
+            this.router.navigate(['/']);
+            return;
+          }
+        }
+        this.mensagemErro = 'E-mail/CPF ou senha incorretos.';
+      },
+      error: () => alert('Erro ao consultar a API.')
+    });
   }
 }

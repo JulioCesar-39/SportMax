@@ -1,42 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CarrinhoService } from '../../core/services/carrinho.service';
+import { ItemCarrinho } from '../../core/models/item-carrinho.model';
+
 @Component({
   selector: 'app-carrinho',
+  standalone: true,
   imports: [],
   templateUrl: './carrinho.html',
   styleUrl: './carrinho.css'
 })
-export class Carrinho {
+export class Carrinho implements OnInit {
+  private carrinhoService = inject(CarrinhoService);
 
-  // Lista os produtos exibidos no carrinho
-  produtos: any[] = [];
+  itens: ItemCarrinho[] = [];
+  total: number = 0;
 
-  // Obtém os produtos armazenados no serviço
-  constructor(private carrinhoService: CarrinhoService) {
-    this.produtos = this.carrinhoService.getProdutos();
+  ngOnInit(): void {
+    this.itens = this.carrinhoService.getItens();
+    this.atualizarTotal();
   }
 
-  // Aumenta a quantidade de um produto
-  aumentarQuantidade(produto: any): void {
-    this.carrinhoService.aumentarQuantidade(produto);
+  aumentar(item: ItemCarrinho): void {
+    this.carrinhoService.aumentar(item);
+    this.atualizarTotal();
   }
 
-  // Diminui a quantidade de um produto
-  diminuirQuantidade(produto: any): void {
-    this.carrinhoService.diminuirQuantidade(produto);
+  diminuir(item: ItemCarrinho): void {
+    this.carrinhoService.diminuir(item);
+    this.itens = this.carrinhoService.getItens();
+    this.atualizarTotal();
   }
 
-  // Calcula o subtotal considerando os preços e as quantidades
-  calcularSubtotal(): number {
-    return this.produtos.reduce(
-      (total, produto) => total + (produto.preco * produto.quantidade),
-      0
-    );
+  remover(item: ItemCarrinho): void {
+    this.carrinhoService.remover(item);
+    this.itens = this.carrinhoService.getItens();
+    this.atualizarTotal();
   }
 
-  // Exibe a mensagem de confirmação da compra
+  atualizarTotal(): void {
+    this.total = 0;
+    for (const item of this.itens) {
+      this.total += item.produto.preco * item.quantidade;
+    }
+  }
+
   finalizarCompra(): void {
     alert('Compra finalizada com sucesso!');
   }
-
 }
